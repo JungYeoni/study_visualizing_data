@@ -1,4 +1,4 @@
-<img width="714" height="657" alt="image" src="https://github.com/user-attachments/assets/5827a5ae-eac2-445f-9710-a2e50e7e3959" />참고 문헌
+참고 문헌
 
 - https://github.com/apache/superset
 - https://superset.apache.org/
@@ -157,11 +157,18 @@ superset run -p 8088 --with-threads --reload --debugger
 http://localhost:8088
 ```
 
-<img width="928" height="907" alt="image" src="https://github.com/user-attachments/assets/0ed62db2-6817-4112-8d23-d2b6629b8108" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0ed62db2-6817-4112-8d23-d2b6629b8108" width="700"/>
+</p>
+
+<p align="center">
+  <em>Apache Superset 초기 실행 화면 (localhost:8088)</em>
+</p>
+
+다음과 같이 서버에 접속한 것을 확인할 수 있다!
 
 
-
-자주 나는 문제
+⚠️ **자주 나는 문제**
 * Refusing to start due to insecure SECRET_KEY
 superset_config.py에 SECRET_KEY 추가 + SUPERSET_CONFIG_PATH 설정 필요
 
