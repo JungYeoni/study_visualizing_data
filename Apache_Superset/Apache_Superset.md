@@ -1,6 +1,9 @@
-https://github.com/apache/superset
+참고 문헌
 
-https://superset.apache.org/
+- https://github.com/apache/superset
+- https://superset.apache.org/
+
+---
 
 # Apache Superset: 데이터 탐색과 시각화를 위한 오픈 소스 BI 툴
 
