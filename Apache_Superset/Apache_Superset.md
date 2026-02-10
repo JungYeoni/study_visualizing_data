@@ -1,4 +1,4 @@
-참고 문헌
+<img width="714" height="657" alt="image" src="https://github.com/user-attachments/assets/5827a5ae-eac2-445f-9710-a2e50e7e3959" />참고 문헌
 
 - https://github.com/apache/superset
 - https://superset.apache.org/
@@ -156,6 +156,9 @@ superset run -p 8088 --with-threads --reload --debugger
 ```
 http://localhost:8088
 ```
+
+<img width="928" height="907" alt="image" src="https://github.com/user-attachments/assets/0ed62db2-6817-4112-8d23-d2b6629b8108" />
+
 
 
 자주 나는 문제
