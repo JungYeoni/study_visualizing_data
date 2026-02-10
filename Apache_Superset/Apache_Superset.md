@@ -63,6 +63,104 @@
 ## 실습코드
 
 \*Superset은 CLI 명령어로 서버를 띄우는 웹앱.
+*윈도우기준
+
+0. (권장) 가상환경 생성 및 활성화
+
+Superset은 의존성이 무겁고 충돌이 잦아서 전용 가상환경을 추천한다.
+```
+conda create -n superset-env python=3.9 -y
+conda activate superset-env
+```
+
+1. Superset 설치
+```
+pip install apache-superset
+```
+
+3. 환경변수 설정 (Windows 기준)
+
+Superset CLI가 Flask 앱을 인식하도록 FLASK_APP를 지정한다.
+Windows에서는 export가 아니라 set을 사용한다.
+
+```
+set FLASK_APP=superset
+```
+
+3. (중요) SECRET_KEY 설정
+
+최근 Superset은 기본(불안전) SECRET_KEY 감지 시 실행을 거부할 수 있다.
+이를 방지하기 위해 Superset 설정 파일을 만들어 SECRET_KEY를 명시한다.
+
+3-1) 설정 폴더/파일 만들기
+```
+mkdir %USERPROFILE%\.superset
+```
+
+
+`C:\Users\<사용자>\.superset\superset_config.py` 파일을 만들고 아래 한 줄을 작성한다.
+
+SECRET_KEY = "change_this_to_a_long_random_string_please_50_chars_minimum_1234567890"
+
+3-2) Superset이 설정 파일을 읽도록 경로 지정
+```
+set SUPERSET_CONFIG_PATH=%USERPROFILE%\.superset\superset_config.py
+```
+
+4. Superset 내부 DB 마이그레이션 (초기화 1단계)
+
+Superset은 내부 메타데이터(사용자/대시보드/권한 등)를 저장하기 위한 내부 DB를 사용한다(기본은 SQLite).
+처음 설치하면 마이그레이션이 필요하다.
+
+```
+superset db upgrade
+```
+
+
+정상 예시:
+
+`Migration scripts completed` 같은 로그가 출력됨
+
+5. 관리자 계정 생성 (초기화 2단계)
+
+웹 UI 로그인에 사용할 관리자 계정을 만든다.
+여기서 입력하는 값은 내 DB 계정이 아니라 Superset 로그인 계정이다.
+
+`superset fab create-admin`
+
+```
+Username = 로그인 ID (예: admin 또는 jungyeon)
+
+Password 입력 시 화면에 표시가 안 되는 것이 정상(별표도 안 뜸)
+```
+
+6. Superset 초기 설정 로딩 (초기화 3단계)
+
+기본 역할/권한 및 샘플 설정 등을 반영한다.
+
+```
+superset init
+```
+
+7. Superset 서버 실행
+
+로컬 서버를 띄워서 브라우저에서 접속한다.
+
+```
+superset run -p 8088 --with-threads --reload --debugger
+```
+
+
+브라우저 접속:
+
+```
+http://localhost:8088
+```
+
+
+자주 나는 문제
+* Refusing to start due to insecure SECRET_KEY
+superset_config.py에 SECRET_KEY 추가 + SUPERSET_CONFIG_PATH 설정 필요
 
 ---
 
