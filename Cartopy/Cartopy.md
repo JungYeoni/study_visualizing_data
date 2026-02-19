@@ -15,5 +15,4 @@
 
 **주요 특징**
 
-- large area (대륙 단위) / small scale data 에서 유용함.
-  \*지도학에서 `Small scale map` 은 넓은 지역 (= 세계지도), `Large scale map` 은 좁은 지역(= 동네 지도)
+- large area (대륙 단위) / small scale data 에서 유용함. \*지도학에서 `Small scale map` 은 넓은 지역 (= 세계지도), `Large scale map` 은 좁은 지역(= 동네 지도)
